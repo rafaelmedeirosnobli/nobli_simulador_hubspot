@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  
+  <link rel="stylesheet" href="style.css" />
+  
+</head>
+
+<body>
+  <div class="container">
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-lg-12">
+        <h1 style="color: #01576e">Simulador Nobli</h1>
+        <h2 style="color: #808080; font-size: 18px">
+          Utilize o nosso simulador para ter uma prévia do seu limite, valor de prestação, prazos e juros.
+        </h2>
+      </div>
+    </div>
+
+    <div class="row success-container blocos2">
+      <div class="col-md-4" class="bloco-1">
+        <div style="color: white">
+          <p style="font-size: 36px; font-weight: 700; color: #000; text-align: center">
+            Limite disponível
+          </p>
+          
+          <div>
+            <p style="font-size: 40px; font-weight: 700; color: #fff; text-align: center;" class="amount-available">
+              -
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8" class="bloco-2">
+        <div class="row" class="bloco-valores">
+          <div class="col-md-8">
+            <div>
+              <div style="text-align: left">
+                <div style="width: 250px; display: flex;">
+                    <p class="br" style="font-weight: 500; margin-right: 10px;">Valor solicitado: </p><p class="requested_amount" style="color: #fff;"> -</p>
+              </div>
+                
+                <p style="margin-bottom: 10px" class="installment_payment br">
+                  Prazo: <span>-</span> meses
+                </p>
+                <p class="br" style="font-weight: 500">Valor da parcela:</p>
+                <p class="installment_amount br" style="font-size: 32px; font-weight: 700; color: #fff;">
+                  -
+                </p>
+              </div>                
+                <p style="margin-bottom: 0" class="tax_payment br">
+                  Taxa de juros: <span>-</span> a.m.
+                </p>
+                <!--
+                <p style="margin-bottom: 0" class="cet_payment br">
+                  CET: <span>-</span> a.m.
+                </p>
+                -->
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4" class="bloco-botoes">
+            <a href="https://nobli.com.br/simulador-step2">
+            <button
+              style="
+                display: inline-flex;
+                -webkit-box-align: center;
+                align-items: center;
+                position: relative;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+                background-color: transparent;
+                outline: 0px;
+                margin: 0 0 20px 0;
+                cursor: pointer;
+                user-select: none;
+                vertical-align: middle;
+                appearance: none;
+                text-decoration: none;
+                line-height: 1.75;
+                letter-spacing: 0.02857em;
+                
+                transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+                    0ms,
+                  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                border: 1px solid rgba(0, 162, 169, 0.5);
+                width: 100%;
+                border-radius: 42px;
+                text-transform: none;
+                color: rgb(255, 255, 255);
+                padding: 6px 2rem;
+                font-size: 16px;
+                font-weight: 700;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                text-align: center;
+                line-height: 2rem;
+              "
+            >
+              Recalcular simulação
+            </button>
+              </a>
+            <a href="https://portal.nobli.com.br/loginOrRegister">
+              <button
+              style="
+                display: inline-flex;
+                -webkit-box-align: center;
+                align-items: center;
+                position: relative;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+                outline: 0px;
+                border: 0px;
+                margin: 0px;
+                cursor: pointer;
+                user-select: none;
+                vertical-align: middle;
+                appearance: none;
+                text-decoration: none;
+                line-height: 1.75;
+                letter-spacing: 0.02857em;
+                
+                transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+                    0ms,
+                  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                background-color: rgb(0, 162, 169);
+                box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px,
+                  rgb(0 0 0 / 14%) 0px 2px 2px 0px,
+                  rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+                width: 100%;
+                border-radius: 42px;
+                text-transform: none;
+                color: rgb(255, 255, 255);
+                padding: 6px 2rem;
+                font-size: 16px;
+                font-weight: 700;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                text-align: center;
+                line-height: 2rem;
+              "
+            >
+              Contratar
+            </button>
+            </a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row nofound-container" style="display: none">
+      <div class="col-md-12" style="border-radius: 40px; background-color: rgb(1, 87, 110); padding: 80px 32px; display: flex; justify-content: center; align-items: center;">
+        <div class="row" style="width: 100%; color: white; display: flex; align-items: center; justify-content: center; flex-direction: column;">
+          <p class="br" style="font-size: 32px; text-align: center;">
+            Nenhum limite <br />
+            disponível
+          </p>
+          <div style="padding: 2rem;">
+           <a href="https://nobli.com.br/simulador-step2">
+            <button
+              style="
+                display: inline-flex;
+                -webkit-box-align: center;
+                align-items: center;
+                position: relative;
+                box-sizing: border-box;
+                -webkit-tap-highlight-color: transparent;
+                background-color: transparent;
+                outline: 0px;
+                margin: 0px;
+                cursor: pointer;
+                user-select: none;
+                vertical-align: middle;
+                appearance: none;
+                text-decoration: none;
+                line-height: 1.75;
+                letter-spacing: 0.02857em;
+                
+                transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)
+                    0ms,
+                  box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  border-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+                  color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+                border: 1px solid rgba(0, 162, 169, 0.5);
+                border-radius: 42px;
+                text-transform: none;
+                color: rgb(255, 255, 255);
+                padding: 6px 2rem;
+                font-size: 16px;
+                font-weight: 700;
+                -webkit-box-pack: justify;
+                justify-content: space-between;
+                text-align: center;
+                line-height: 2rem;
+              "
+            >
+              Adicione mais garantias 
+            </button>
+              </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"
+    integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="./step4.js"></script>
+</body>

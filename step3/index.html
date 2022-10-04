@@ -1,0 +1,174 @@
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row" style="margin-bottom: 60px">
+            <div class="col-lg-12">
+                <h1 style="color: #fff">Simulador Nobli</h1>
+                <h2 style="color: #fff; font-size: 18px">
+                    Utilize o nosso simulador para ter uma prévia do seu limite, valor de prestação, prazos e juros
+                </h2>
+                <div class="step-progress">
+                    <div class="stepProgress-active col-md-1"></div>
+                    <div class="stepProgress-active col-md-1"></div>
+                    <div class="stepProgress-active col-md-1"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 box-step-1">
+                <div class="box-step">3/3</div>
+                <div class="col-lg-10">
+                    <div class="col-xs-12 col-sm-12">
+                        <h3 style="
+                  margin-top: 0;
+                  color: #00a2a9;
+                  font-size: 24px;
+                  font-weight: 700;
+                ">
+                            Resultado
+                        </h3>
+                        <h4 style="color: #808080; font-size: 18px">
+                            Agora faltam alguns dados para receber o resultado da simulação
+                        </h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12">
+                        <div class="box">
+                            <form name=form-simulation>
+                                <div class="caixa-input4 col-sm-6">
+                                    <input aria-invalid="false" id="valor" name="nome" placeholder="Nome" requiredValue
+                                        type="text" class="cx-input3" value="" style="
+                      border: solid #00a2a9 1px !important;
+                      border-radius: 40px !important;
+                    " />
+                                </div>
+
+                                <div class="caixa-input4 col-sm-6">
+                                    <input aria-invalid="false" id="sobrenome" name="sobrenome" placeholder="Sobrenome"
+                                        requiredValue type="text" class="cx-input3" value="" style="
+                      border: solid #00a2a9 1px !important;
+                      border-radius: 40px !important;
+                    " />
+                                </div>
+
+                                <div class="caixa-input4 col-sm-6">
+                                    <input aria-invalid="false" id="valor" name="email" placeholder="Seu email"
+                                        requiredValue type="text" class="cx-input3" value="" style="
+                      border: solid #00a2a9 1px !important;
+                      border-radius: 40px !important;
+                    " />
+                                </div>
+
+                                <div class="caixa-input4 col-sm-6">
+                                    <input aria-invalid="false" id="telefone" name="telefone" placeholder="Seu telefone"
+                                        requiredValue type="text" class="cx-input3" value="" style="
+                      border: solid #00a2a9 1px !important;
+                      border-radius: 40px !important;
+                    " />
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <div class="disclaimer">
+                                        <input type="checkbox" data-indeterminate="false"
+                                            style="margin-right: 20px; transform: scale(2)" />
+
+                                        <p style="color: #808080;">
+                                            Ao aceitar, você autoriza a coleta dos seus dados pessoais
+                                            por parte da Nobli de acordo com a nossa<a
+                                                href="https://www.nobli.com.br/privacidade">
+                                                Política de Privacidade</a>
+                                            nos termos da Lei Geral de Proteção de Dados.
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12" style="margin-bottom: 30px">
+                                        <button id="button-next-step" class="botao" tabindex="-1" type="button">
+                                            Receber resultados >
+                                        </button>
+                                    </div>
+                                </div>
+                            </Form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-4 back-box">
+                <div class="box-disp">
+                    <p style="
+                padding: 45px 0 0 20px;
+                color: #fff;
+                font-size: 24px;
+                font-weight: 700;
+              ">
+                        Limite disponível:
+                    </p>
+                    <p style="
+                padding: 10px 0 0 20px;
+                color: #fff;
+                font-size: 40px;
+                font-weight: 700;
+              " class="amount-available">
+                        -
+                    </p>
+
+                    <p style="
+                padding: 10px 0 0 20px;
+                color: #fff;
+                font-size: 15px;
+                font-weight: 600;
+              ">
+                        Informe o valor desejado e em quantos meses deseja fazer o pagamento
+                    </p>
+
+                    <div class="caixa-input2">
+                        <input aria-invalid="false" id="valor" readonly name="amount" input-mask-currency-min=""
+                            inputmode="decimal" type="text" class="cx-input2" value="" />
+
+                    </div>
+                    <div class="caixa-input3">
+                        <input aria-invalid="false" id="prazo" readonly name="installments" type="text"
+                            class="cx-input2" value="" />
+                    </div>
+                </div>
+            </div>
+
+            <div id="loading-section" style="
+            display: none;
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            z-index: 999;
+            background-color: rgba(255, 255, 255, 1);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            align-items: center;
+            justify-content: center;">
+
+
+                <div style="top: 0; left: 0; right: 0; bottom: 0; align-items: center; justify-content: center;">
+                    <img style="margin-left: 22%;" src="https://conteudo.nobli.com.br/hubfs/ezgif-3-ceaab26059.gif">
+                    <p style="font-size: 56px; text-align: center;">Calculando...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"
+        integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+
+</body>

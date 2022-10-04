@@ -1,0 +1,232 @@
+
+    <head>
+        <meta charset="UTF-8" />
+        <link
+          rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        />
+      </head>
+      
+      <body>
+        
+        <div class="container">
+          <div class="row" style="margin-bottom: 60px">
+            <div class="col-lg-12">
+              <h1 style="color: #fff">Simulador Nobli</h1>
+              <h2 style="color: #fff; font-size: 18px">
+                Utilize o nosso simulador para ter uma prévia do seu limite, valor de prestação, prazos e juros.
+              </h2>
+              <div class="step-progress">
+              <div class="stepProgress col-md-1"></div>
+              <div class="stepProgress-active col-md-1"></div>
+              <div class="stepProgress col-md-1"></div>
+                </div>
+            </div>
+          </div>
+      
+          <div class="row">
+            <div class="col-xs-12 col-sm-8 box-step-1">
+              <div class="box-step">2/3</div>
+              <div class="col-lg-10">
+                <div class="col-xs-12 col-sm-12 titulo">
+                  <h3 style="margin-top: 0; color: #00a2a9; font-size: 24px; font-weight: 700;">
+                    Confira seu limite
+                   </h3>
+                   <h4 style="color: #808080; font-size: 18px">
+                    Confira ao lado o limite liberado de acordo com  suas garantias.
+                   </h4>
+                  
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                  <div class="box">
+                    <p class="box-title">Renda Fixa</p>
+                    <p class="box-subtitle">Quanto deseja usar como garantia?</p>
+                    <div class="caixa-input">
+                      <input
+                        assetInput
+                        name="renda_fixa"
+                        class="cx-input renda-fixa-input"
+                        input-mask-currency
+                        aria-invalid="false"
+                        id=":r1:"
+                        placeholder="R$ 0,00"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="col-xs-12 col-sm-12">
+                  <div class="box">
+                    <p class="box-title">Ações, FII, BDR e ETF</p>
+                    <p class="box-subtitle">Quanto deseja usar como garantia?</p>
+                    <div class="caixa-input">
+                      <input
+                        assetInput
+                        name="outros"
+                        class="cx-input renda-fixa-input"
+                        input-mask-currency
+                        aria-invalid="false"
+                        id=":r1:"
+                        placeholder="R$ 0,00"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-sm-6">
+                  <!-- div class="box">
+                    <p class="box-title">FII, BDR e outros</p>
+                    <p class="box-subtitle">Quanto deseja usar como garantia?</p>
+                    <div class="caixa-input">
+                      <input
+                        name="outros"
+                        class="cx-input renda-fixa-input"
+                        input-mask-currency
+                        aria-invalid="false"
+                        id=":r1:"
+                        placeholder="R$ 0,00"
+                        type="text"
+                        value=""
+                      />
+                    </div>
+                  </div> -->
+                </div>
+                <!--<div class="col-xs-12 col-sm-6">
+                  <div class="box">
+                    <p
+                      style="
+                        text-align: center;
+                        color: #808080;
+                        font-size: 18px;
+                        padding: 50px 20px 0px 20px;
+                      "
+                    >
+                      Dica: No próximo passo você pode adicionar ou remover
+                      investimentos como achar melhor.
+                    </p>
+                  </div>
+                </div>-->
+              </div>
+            </div>
+      
+            <div class="col-xs-12 col-sm-4 back-box">
+              <div class="box-disp">
+                <p
+                   id="sem-limite"
+                  style="
+                    padding: 45px 0 0 20px;
+                    color: #fff;
+                    font-size: 24px;
+                    font-weight: 700;
+                  "
+                >
+                  Limite disponível:
+                </p>
+                <p
+                  style="
+                    padding: 10px 0 0 20px;
+                    color: #fff;
+                    font-size: 40px;
+                    font-weight: 700;
+                  "
+                  class="amount-available"
+                >
+                  -
+                </p>
+                
+                <p
+                  style="
+                    padding: 10px 0 0 20px;
+                    color: #fff;
+                    font-size: 15px;
+                    font-weight: 600;
+                  "
+                >
+                  Informe qual o valor deseja solicitar dentro do seu limite e em
+                  quantos meses deseja fazer o pagamento
+                </p>
+      
+                <div class="caixa-input2">
+                  <input
+                    aria-invalid="false"
+                    id="valor"
+                    requiredValue
+                    name="amount"
+                    input-mask-currency-min
+                    placeholder="R$ 5.000,00"
+                    type="text"
+                    class="cx-input2"
+                    value=""
+                  />
+                  <span>Valor a partir de R$ 5 mil</span>
+                </div>
+                <div class="caixa-input3" style="margin-top: 10px">
+                  <input
+                    aria-invalid="false"
+                    id="prazo"
+                    name="installments"
+                    placeholder="3 Meses"
+                    type="text"
+                    class="cx-input2"
+                    value=""
+                  />
+                  <span>Prazo entre 3 e 36 meses.</span>
+                </div>
+                <div style="margin-bottom: 60px; margin-top: 40px; padding-left: 25%">
+                  <button
+                    class="botao"
+                    tabindex="-1"
+                    type="button"
+                    id="button-next-step"
+                  >
+                    Calcular parcela
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+<div id="loading-section" style="
+          display: none;
+          width: 100%;
+          height: 100vh;
+          position: fixed;
+          z-index: 999;
+          background-color: rgba(255, 255, 255, 1);
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          align-items: center;
+          justify-content: center;">
+          
+          
+          <div style="top: 0; left: 0; right: 0; bottom: 0; align-items: center; justify-content: center;">
+            <img style="margin-left: 22%;" src="https://conteudo.nobli.com.br/hubfs/ezgif-3-ceaab26059.gif">
+            <p style="font-size: 56px; text-align: center;">Calculando...</p>  
+          </div>
+    </div>
+      
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js"
+          integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+          integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer"
+        ></script>
+          </div>
+      </body>
+      
