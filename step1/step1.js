@@ -10,15 +10,20 @@ const isFixedIncome = (code) => {
   return ["CDB", "LCA", "LCI"].includes(code);
 };
 
-//SEGMENT
+const getSegmentFieldsMappedFromAssets = (assets) => {
+  const fieldToMapProductTypeToSegmentField = {
+    ACA: 'campo_2',
+    BDR: 'campo_3',
+    ETF: 'campo_4',
+    FII: 'campo_5',
+  }
+  return assets.map(asset => ({ [ fieldToMapProductTypeToSegmentField[asset.product_name] ]: asset.product_name }));
+}
 
-const writeKey = "zNDcqzRNGzmMsupIkpQkvrvFIIgRBgGA";
-
-console.log('app running on the write key - ', writeKey);
-
-const sendEventToSegment = async () => {
-  console.log(' - Beginning to call segment api - ');
-  const event = {
+const buildSegmentEvent = (assets) => {
+  debugger;
+  const fieldsMappedFromAssets = getSegmentFieldsMappedFromAssets(assets)
+  return {
     userId: 'telemetria@nobli.com.br',
     event: `15 + 001`,
     type: 'track',
@@ -26,26 +31,30 @@ const sendEventToSegment = async () => {
       timestamp: Date.now().toString(),
       process: "Simulação",
       subProcess: "Investimentos com garantia",
+      ...fieldsMappedFromAssets,
       campo_6: "Simule 2",
       campo_9: 'www.nobli.com.br/simule'
     },
   };
+}
+
+const getSegmentAuth = () => {
+  return { auth: { username: "zNDcqzRNGzmMsupIkpQkvrvFIIgRBgGA", password: "" } }
+}
+
+
+const sendEventToSegment = async (assets) => {
 
   const response = await axios.post(
     `https://api.segment.io/v1/track`,
-    event,
-    {
-      auth: {
-        username: writeKey ,
-        password: ""
-      }
-    }
+    buildSegmentEvent(assets),
+    getSegmentAuth()
   );
   
   console.log(' - Response from segment api - ', response);
 };
 
-sendEventToSegment()
+
 
 //SEGMENT
 
@@ -181,6 +190,8 @@ const handleFetchLimits = async () => {
   }
 
   newAssets = newAssets.filter((asset) => asset);
+
+  sendEventToSegment(newAssets)
 
   const requestLimit = {
     installment_requested: "3",
