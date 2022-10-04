@@ -10,26 +10,28 @@ const isFixedIncome = (code) => {
   return ["CDB", "LCA", "LCI"].includes(code);
 };
 
+const addPropToSegmentEvent = (segmentEvent, fieldName, fieldValue) => {
+  segmentEvent[fieldName] = fieldValue;
+  return { ...segmentEvent };
+}
+
 const getSegmentFieldsMappedFromAssets = (assets) => {
-  const fieldToMapProductTypeToSegmentField = {
-    CDB: 'campo_1',
+  const fieldsConfigurationToSegmentEvent = {
     ACA: 'campo_2',
     BDR: 'campo_3',
     ETF: 'campo_4',
     FII: 'campo_5',
-    
   }
 
   let segmentEventObj = {}
   assets.map(asset => {
-    isFixedIncome(asset.product_name) ? segmentEventObj[`campo_1`] = 'Renda Fixa' : segmentEventObj[fieldToMapProductTypeToSegmentField[asset.product_name]] = asset.product_name;   
+    segmentEventObj = isFixedIncome(asset.product_name) ? addPropToSegmentEvent(segmentEventObj, 'campo_1', 'Renda Fixa') : addPropToSegmentEvent(segmentEventObj, fieldsConfigurationToSegmentEvent[asset.product_name], asset.product_name);
   })
   return segmentEventObj
 }
 
 const buildSegmentEvent = (assets) => {
   debugger;
-  const fieldsMappedFromAssets = getSegmentFieldsMappedFromAssets(assets)
   return {
     userId: 'telemetria@nobli.com.br',
     event: `15 + 001`,
@@ -38,7 +40,7 @@ const buildSegmentEvent = (assets) => {
       timestamp: Date.now().toString(),
       process: "Simulação",
       subProcess: "Investimentos com garantia",
-      ...fieldsMappedFromAssets,
+      ...getSegmentFieldsMappedFromAssets(assets),
       campo_6: "Simule 2",
       campo_9: 'www.nobli.com.br/simule'
     },
