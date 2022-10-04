@@ -12,12 +12,19 @@ const isFixedIncome = (code) => {
 
 const getSegmentFieldsMappedFromAssets = (assets) => {
   const fieldToMapProductTypeToSegmentField = {
+    CDB: 'campo_1',
     ACA: 'campo_2',
     BDR: 'campo_3',
     ETF: 'campo_4',
     FII: 'campo_5',
+    
   }
-  return assets.map(asset => ({ [ fieldToMapProductTypeToSegmentField[asset.product_name] ]: asset.product_name }));
+
+  let segmentEventObj = {}
+  assets.map(asset => {
+    isFixedIncome(asset.product_name) ? segmentEventObj[`campo_1`] = 'Renda Fixa' : segmentEventObj[fieldToMapProductTypeToSegmentField[asset.product_name]] = asset.product_name;   
+  })
+  return segmentEventObj
 }
 
 const buildSegmentEvent = (assets) => {
